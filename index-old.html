@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="f0fDu-2oZYJyds3fe0pPUZ3dcT-Th3PSaafStZ7mFhw" />
+    <title>Dwiti Thaker - Software Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --text: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --bg: #020617;
+            --card-bg: #1e293b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-light);
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-light);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            bottom: -150px;
+            left: -150px;
+            animation: pulse 6s ease-in-out infinite;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--text);
+            z-index: 2;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            animation: fadeInUp 1s ease 0.4s backwards;
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.4);
+            background: var(--accent-light);
+        }
+
+        /* Floating shapes */
+        .shape {
+            position: absolute;
+            opacity: 0.05;
+        }
+
+        .shape1 {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: var(--accent);
+            top: 10%;
+            left: 10%;
+            animation: float 6s ease-in-out infinite;
+            filter: blur(60px);
+        }
+
+        .shape2 {
+            width: 200px;
+            height: 200px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            background: var(--accent-light);
+            bottom: 15%;
+            right: 10%;
+            animation: float 8s ease-in-out infinite;
+            filter: blur(50px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
+            border: 3px solid rgba(59, 130, 246, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 50px rgba(59, 130, 246, 0.4);
+        }
+
+        .about-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image svg {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1.5rem;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-light);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(96, 165, 250, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .project-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tag {
+            padding: 0.3rem 1rem;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        /* GitHub Button */
+        .github-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.5rem;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-light);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .github-button:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .github-button .arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .github-button:hover .arrow {
+            transform: translateX(3px);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: white;
+            text-align: center;
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            box-shadow: 0 0 50px rgba(59, 130, 246, 0.3);
+        }
+
+        .contact h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            padding: 1rem 2rem;
+            background: white;
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.15;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.25;
+                transform: scale(1.1);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Dwiti Thaker</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="hero-content">
+            <h1>Hi, I'm Dwiti Thaker</h1>
+            <p>Debugging life, deploying dreams | Software Developer & Data Science Enthusiast</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Building intelligent solutions through code and data</h3>
+                <p>I’m Dwiti Thaker a software developer passionate about turning ideas into intelligent, data-driven
+                    digital experiences. With a strong foundation in machine learning and a growing expertise in the
+                    MERN stack, I love building impactful web applications that merge analytics, design, and user
+                    experience. </p>
+                <p>My work lies at the intersection of data, logic, and creativity driven by curiosity, innovation, and
+                    the thrill of continuous learning.</p>
+                <div class="skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Data Analysis</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">FastAPI</span>
+                    <span class="skill-tag">Git/GitHub</span>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="me.png" alt="Dwiti Thaker">
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <circle cx="200" cy="200" r="150" fill="url(#grad1)" opacity="0.2" />
+                <rect x="100" y="150" width="200" height="150" rx="10" fill="url(#grad1)" opacity="0.8" />
+                <circle cx="200" cy="120" r="40" fill="url(#grad1)" />
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <!-- Software Development Projects Section -->
+    <section id="software-projects">
+        <h2 class="section-title">Software Development Projects</h2>
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <div class="project-image">🏥</div>
+                <div class="project-content">
+                    <h3>Hospital Management System</h3>
+                    <p>Developed a full-featured hospital management web app enabling doctors, patients, and admins to
+                        manage appointments, medical records, and staff details efficiently.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">MongoDB</span>
+                        <span class="project-tag">FastAPI</span>
+                    </div>
+                    <a href="https://github.com/DwitiThaker/Hospital-Management" class="github-button" target="_blank">
+                        <span class="arrow">→</span> View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">✅</div>
+                <div class="project-content">
+                    <h3>To-Do List Web App</h3>
+                    <p>Built a responsive and user-friendly task management application with real-time CRUD operations,
+                        authentication, and persistent data storage.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">FastAPI</span>
+                        <span class="project-tag">Postgresql</span>
+                        <span class="project-tag">Sqlite</span>
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                    </div>
+                    <a href="https://client-zlnl.onrender.com/" class="github-button" target="_blank">
+                        <span class="arrow">→</span> Live Demo
+                    </a>
+                    <a href="https://github.com/DwitiThaker/FullStackApp" class="github-button" target="_blank">
+                        <span class="arrow">→</span> View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🚀</div>
+                <div class="project-content">
+                    <h3>Weather-App</h3>
+                    <p>Continuously exploring projects that merge AI with full-stack innovation — from intelligent
+                        dashboards to automation tools. Stay tuned for more exciting releases!</p>
+                    <div class="project-tags">
+                        <span class="project-tag">AI</span>
+                        <span class="project-tag">MERN</span>
+                        <span class="project-tag">Innovation</span>
+                        <span class="project-tag">In Progress</span>
+                    </div>
+                    <a href="https://heythereweather.netlify.app/" class="github-button" target="_blank">
+                        <span class="arrow">→</span> Live Demo
+                    </a>
+                    <a href="https://github.com/DwitiThaker/weather-app" class="github-button" target="_blank">
+                        <span class="arrow">→</span> View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">💸</div>
+
+                <div class="project-content">
+                    <h3>OwnMyCash – Expense Tracker</h3>
+
+                    <p>
+                        A minimal and fast expense-tracking web application built with React and Vite.
+                        It features real-time balance updates, income/expense summaries, and a clean,
+                        responsive UI powered by Context API and a custom reducer.
+                    </p>
+
+                    <div class="project-tags">
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Vite</span>
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">Context API</span>
+                        <span class="project-tag">CSS</span>
+                    </div>
+
+                    <a href="https://owmycash.netlify.app/" class="github-button" target="_blank">
+                        <span class="arrow">→</span> Live Demo
+                    </a>
+
+                    <a href="https://github.com/DwitiThaker/expenseTracker" class="github-button" target="_blank">
+                        <span class="arrow">→</span> View on GitHub
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+
+    <section id="projects">
+        <h2 class="section-title">Machine Learning Projects</h2>
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <div class="project-image">📈</div>
+                <div class="project-content">
+                    <h3>Stock Price Prediction</h3>
+                    <p>Compares Linear Regression and LSTM models for forecasting stock prices using historical trends
+                        and technical indicators.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">LSTM</span>
+                        <span class="project-tag">TensorFlow</span>
+                        <span class="project-tag">Linear Regression</span>
+                        <span class="project-tag">Data Analysis</span>
+                    </div>
+                    <a href="https://github.com/DwitiThaker/ds_portfolio/tree/main/Stock_price_prediction"
+                        class="github-button" target="_blank">
+                        <span class="arrow">→</span> View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🩺</div>
+                <div class="project-content">
+                    <h3>Disease Prediction</h3>
+                    <p>A web-based application that predicts the likelihood of three major health conditions — Heart
+                        Disease, Diabetes, and Parkinson’s Disease.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Machine Learning</span>
+                        <span class="project-tag">Flask</span>
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Data Science</span>
+                    </div>
+                    <a href="https://github.com/DwitiThaker/ds_portfolio/tree/main/disease_prediction"
+                        class="github-button" target="_blank">
+                        <span class="arrow">→</span> View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">💰</div>
+                <div class="project-content">
+                    <h3>Health Insurance Cost Prediction</h3>
+                    <p>Predicts annual medical expenses using Linear Regression based on customer demographics and
+                        health data.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Linear Regression</span>
+                        <span class="project-tag">Pandas</span>
+                        <span class="project-tag">NumPy</span>
+                    </div>
+                    <a href="https://github.com/DwitiThaker/ds_portfolio/tree/main/Health-Insurance"
+                        class="github-button" target="_blank">
+                        <span class="arrow">→</span> View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">📝</div>
+                <div class="project-content">
+                    <h3>Basic Text Summarization</h3>
+                    <p>Summarizes large texts into concise, informative summaries using NLP-based text ranking and
+                        frequency analysis techniques.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">NLP</span>
+                        <span class="project-tag">TextRank</span>
+                        <span class="project-tag">Summarization</span>
+                    </div>
+                    <a href="https://github.com/DwitiThaker/ds_portfolio/tree/main/Text_Summarization"
+                        class="github-button" target="_blank">
+                        <span class="arrow">→</span> View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">📊</div>
+                <div class="project-content">
+                    <h3>Prophet Stock Price Prediction</h3>
+                    <p>A web-based application that uses Facebook Prophet to forecast stock prices based on historical
+                        data with visualization support.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Prophet</span>
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Data Visualization</span>
+                        <span class="project-tag">Forecasting</span>
+                    </div>
+                    <a href="https://github.com/DwitiThaker/ds_portfolio/tree/main/prophet-stock" class="github-button"
+                        target="_blank">
+                        <span class="arrow">→</span> View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">💬</div>
+                <div class="project-content">
+                    <h3>Toxic Comment Classifier</h3>
+                    <p>A collaborative ML project detecting toxic comments using classical NLP and models like Naive
+                        Bayes, Logistic Regression, and SVM.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">NLP</span>
+                        <span class="project-tag">Scikit-learn</span>
+                        <span class="project-tag">Text Classification</span>
+                        <span class="project-tag">Machine Learning</span>
+                    </div>
+                    <a href="https://github.com/DwitiThaker/Collaborative-ml-workspace/tree/main/toxic-comment-classifier"
+                        class="github-button" target="_blank">
+                        <span class="arrow">→</span> View on GitHub
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact">
+            <h2>Let's Work Together</h2>
+            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:dwiti.thaker04@gmail.com" class="contact-link">Email Me</a>
+                <a href="https://github.com/DwitiThaker" class="contact-link" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/dwiti-thaker-a36358236/" class="contact-link"
+                    target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Dwiti Thaker. Built with passion and code.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card, .about-content').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,827 +1,1000 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="f0fDu-2oZYJyds3fe0pPUZ3dcT-Th3PSaafStZ7mFhw" />
-    <title>Dwiti Thaker - Software Developer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dwiti Thaker – Python Backend & AI/ML Engineer</title>
+<meta name="description" content="Python Backend & AI/ML Engineer specializing in FastAPI, LangChain, RAG, MCP, and scalable production systems." />
 
-        :root {
-            --primary: #0f172a;
-            --secondary: #1e293b;
-            --accent: #3b82f6;
-            --accent-light: #60a5fa;
-            --text: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --bg: #020617;
-            --card-bg: #1e293b;
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--bg);
-            overflow-x: hidden;
-        }
+:root{
+--bg:#020617;
+--card:#0f172a;
+--card2:#1e293b;
+--primary:#3b82f6;
+--secondary:#8b5cf6;
+--text:#f8fafc;
+--muted:#cbd5e1;
+--success:#10b981;
+--warning:#f59e0b;
+--cyan:#06b6d4;
+--pink:#ec4899;
+}
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(2, 6, 23, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
-        }
+body{
+font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.75;
+}
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-light);
-            text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-        }
+/* NAV */
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(2,6,23,.95);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(59,130,246,.15);
+padding:1rem 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+}
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
+.edu-badges{
+  display:flex;
+  gap:1rem;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:2.5rem;
+}
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 500;
-            transition: all 0.3s;
-            position: relative;
-        }
+.edu-badge{
+  padding:.7rem 1.5rem;
+  background:rgba(59,130,246,.12);
+  border:1px solid rgba(59,130,246,.3);
+  border-radius:25px;
+  color:var(--primary);
+  font-weight:600;
+  font-size:1rem;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+}
 
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s;
-        }
+nav .logo{
+font-weight:700;
+font-size:1.4rem;
+color:var(--primary);
+}
 
-        .nav-links a:hover {
-            color: var(--accent-light);
-        }
+nav ul{
+display:flex;
+list-style:none;
+gap:2rem;
+align-items:center;
+}
 
-        .nav-links a:hover:after {
-            width: 100%;
-        }
+nav a{
+text-decoration:none;
+color:var(--muted);
+font-weight:500;
+transition:.3s;
+}
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg);
-            position: relative;
-            overflow: hidden;
-        }
+nav a:hover{color:var(--primary)}
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
-            top: -200px;
-            right: -200px;
-            animation: pulse 4s ease-in-out infinite;
-        }
+.resume-btn{
+background:var(--primary);
+padding:.6rem 1.4rem;
+border-radius:999px;
+color:white!important;
+font-weight:600;
+box-shadow:0 4px 15px rgba(59,130,246,.3);
+}
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
-            bottom: -150px;
-            left: -150px;
-            animation: pulse 6s ease-in-out infinite;
-        }
+.resume-btn:hover{
+transform:translateY(-2px);
+}
 
-        .hero-content {
-            text-align: center;
-            color: var(--text);
-            z-index: 2;
-            padding: 2rem;
-        }
+/* HERO */
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+padding:0 8%;
+}
 
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-            background: linear-gradient(135deg, var(--text) 0%, var(--accent-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+.hero::before{
+content:'';
+position:absolute;
+inset:0;
+background:
+radial-gradient(circle at 20% 20%,rgba(59,130,246,.2),transparent 40%),
+radial-gradient(circle at 80% 80%,rgba(139,92,246,.2),transparent 40%);
+pointer-events:none;
+}
 
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: var(--text-secondary);
-            animation: fadeInUp 1s ease 0.2s backwards;
-        }
+.hero-content{
+position:relative;
+max-width:900px;
+animation:fadeIn 1s ease;
+}
 
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--accent);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-            animation: fadeInUp 1s ease 0.4s backwards;
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
-        }
+.hero h1{
+font-size:4rem;
+margin-bottom:1rem;
+background:linear-gradient(135deg,#fff,var(--primary));
+background-clip:text;
+-webkit-text-fill-color:transparent;
+font-weight:800;
+letter-spacing:-1px;
+}
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.4);
-            background: var(--accent-light);
-        }
+.hero p{
+font-size:1.4rem;
+color:var(--muted);
+margin-bottom:1rem;
+}
 
-        /* Floating shapes */
-        .shape {
-            position: absolute;
-            opacity: 0.05;
-        }
+.hero .education{
+color:var(--primary);
+font-weight:600;
+margin-bottom:2.5rem;
+font-size:1.15rem;
+}
 
-        .shape1 {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: var(--accent);
-            top: 10%;
-            left: 10%;
-            animation: float 6s ease-in-out infinite;
-            filter: blur(60px);
-        }
+.cta{
+display:inline-block;
+padding:1rem 2.4rem;
+border-radius:999px;
+background:linear-gradient(135deg,var(--primary),var(--secondary));
+color:white;
+font-weight:600;
+text-decoration:none;
+box-shadow:0 10px 40px rgba(59,130,246,.35);
+transition:.3s;
+}
 
-        .shape2 {
-            width: 200px;
-            height: 200px;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            background: var(--accent-light);
-            bottom: 15%;
-            right: 10%;
-            animation: float 8s ease-in-out infinite;
-            filter: blur(50px);
-        }
+.cta:hover{
+transform:translateY(-3px);
+box-shadow:0 15px 50px rgba(59,130,246,.45);
+}
 
-        /* Section Styles */
-        section {
-            padding: 6rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+/* SECTIONS */
+section{
+padding:6.5rem 8%;
+max-width:1400px;
+margin:auto;
+}
 
-        .section-title {
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            background: linear-gradient(135deg, var(--text) 0%, var(--accent-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+.section-title{
+font-size:3rem;
+text-align:center;
+margin-bottom:1rem;
+background:linear-gradient(135deg,#fff,var(--primary));
+background-clip:text;
+-webkit-text-fill-color:transparent;
+font-weight:800;
+}
 
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
+.section-subtitle{
+text-align:center;
+color:var(--muted);
+font-size:1.15rem;
+margin-bottom:4rem;
+}
 
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
+/* ABOUT + SKILLS */
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:4rem;
+margin-top:3rem;
+}
 
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
+.about-text h3{
+font-size:2.3rem;
+margin-bottom:1.5rem;
+line-height:1.3;
+}
 
-        .about-image img {
-            width: 100%;
-            max-width: 350px;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
-            border: 3px solid rgba(59, 130, 246, 0.2);
-            transition: transform 0.3s;
-        }
+.about-text p{
+font-size:1.1rem;
+color:var(--muted);
+margin-bottom:1.5rem;
+line-height:1.8;
+}
 
-        .about-image img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 50px rgba(59, 130, 246, 0.4);
-        }
+.stats-row{
+display:flex;
+gap:1.5rem;
+margin-top:2rem;
+}
 
-        .about-image {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.stat-box{
+flex:1;
+background:rgba(59,130,246,.08);
+border:1px solid rgba(59,130,246,.25);
+border-radius:15px;
+padding:1.5rem;
+text-align:center;
+}
 
-        .about-image svg {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-        }
+.stat-box h4{
+font-size:2rem;
+color:var(--primary);
+margin-bottom:.5rem;
+}
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
+.stat-box p{
+color:var(--muted);
+font-size:.9rem;
+margin:0;
+}
 
-        .skill-tag {
-            padding: 0.5rem 1.5rem;
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--accent-light);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
+.exploring-badge{
+display:inline-flex;
+align-items:center;
+gap:.5rem;
+background:linear-gradient(135deg,rgba(139,92,246,.15),rgba(59,130,246,.15));
+border:1px solid var(--secondary);
+border-radius:25px;
+padding:.8rem 1.5rem;
+margin-top:2rem;
+color:var(--secondary);
+font-weight:600;
+font-size:.95rem;
+}
 
-        .skill-tag:hover {
-            background: rgba(59, 130, 246, 0.2);
-            border-color: var(--accent);
-            transform: translateY(-2px);
-        }
+.skills-section{
+background:linear-gradient(180deg,var(--card),var(--card2));
+border-radius:20px;
+padding:2.5rem;
+border:1px solid rgba(59,130,246,.2);
+box-shadow:0 10px 40px rgba(0,0,0,.3);
+}
 
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+.skills-section h4{
+color:var(--primary);
+margin-bottom:2rem;
+text-transform:uppercase;
+letter-spacing:2px;
+font-size:1.1rem;
+font-weight:700;
+}
 
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s;
-            cursor: pointer;
-            border: 1px solid rgba(59, 130, 246, 0.1);
-        }
+.skill-category{
+margin-bottom:2rem;
+}
 
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 50px rgba(59, 130, 246, 0.2);
-            border-color: rgba(59, 130, 246, 0.3);
-        }
+.skill-category:last-child{
+margin-bottom:0;
+}
 
-        .project-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(96, 165, 250, 0.1) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
-        }
+.skill-category-title{
+color:var(--text);
+margin-bottom:.8rem;
+font-size:.95rem;
+font-weight:600;
+}
 
-        .project-content {
-            padding: 2rem;
-        }
+.skill-tags{
+display:flex;
+flex-wrap:wrap;
+gap:.7rem;
+}
 
-        .project-content h3 {
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
+.skill-tag{
+padding:.6rem 1.3rem;
+border-radius:20px;
+background:rgba(59,130,246,.08);
+border:1px solid rgba(59,130,246,.3);
+color:var(--primary);
+font-weight:500;
+font-size:.9rem;
+transition:.3s;
+}
 
-        .project-content p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
+.skill-tag:hover{
+background:rgba(59,130,246,.15);
+transform:translateY(-2px);
+}
 
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
+/* EXPERIENCE */
+.experience-card{
+background:linear-gradient(180deg,var(--card),var(--card2));
+border-radius:25px;
+padding:3.5rem;
+border:1px solid rgba(59,130,246,.2);
+box-shadow:0 15px 60px rgba(0,0,0,.4);
+transition:.3s;
+}
 
-        .project-tag {
-            padding: 0.3rem 1rem;
-            background: rgba(59, 130, 246, 0.1);
-            border-radius: 15px;
-            font-size: 0.85rem;
-            color: var(--accent-light);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-        }
+.experience-card:hover{
+transform:translateY(-5px);
+box-shadow:0 20px 70px rgba(59,130,246,.25);
+}
 
-        /* GitHub Button */
-        .github-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.7rem 1.5rem;
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--accent-light);
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            transition: all 0.3s;
-            margin-top: 1rem;
-        }
+.experience-header{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+margin-bottom:2.5rem;
+gap:1rem;
+}
 
-        .github-button:hover {
-            background: rgba(59, 130, 246, 0.2);
-            border-color: var(--accent);
-            transform: translateX(5px);
-        }
+.experience-header h3{
+font-size:2.2rem;
+color:var(--primary);
+font-weight:700;
+}
 
-        .github-button .arrow {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 24px;
-            height: 24px;
-            background: var(--accent);
-            border-radius: 50%;
-            transition: transform 0.3s;
-        }
+.company-name{
+color:var(--text);
+font-size:1.3rem;
+margin-top:.5rem;
+}
 
-        .github-button:hover .arrow {
-            transform: translateX(3px);
-        }
+.duration{
+background:rgba(59,130,246,.12);
+padding:.6rem 1.3rem;
+border-radius:25px;
+color:var(--muted);
+border:1px solid rgba(59,130,246,.25);
+font-weight:500;
+}
 
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            color: white;
-            text-align: center;
-            border-radius: 20px;
-            padding: 4rem 2rem;
-            box-shadow: 0 0 50px rgba(59, 130, 246, 0.3);
-        }
+.experience-card ul{
+list-style:none;
+}
 
-        .contact h2 {
-            color: white;
-            margin-bottom: 1rem;
-        }
+.experience-card li{
+padding-left:2rem;
+margin-bottom:1.3rem;
+position:relative;
+color:var(--muted);
+font-size:1.08rem;
+line-height:1.7;
+}
 
-        .contact p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
+.experience-card li::before{
+content:'▹';
+position:absolute;
+left:0;
+color:var(--primary);
+font-size:1.5rem;
+font-weight:bold;
+}
 
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
+/* PROJECTS */
+.projects-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+gap:2.5rem;
+}
 
-        .contact-link {
-            padding: 1rem 2rem;
-            background: white;
-            color: var(--accent);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
+.project-card{
+background:linear-gradient(180deg,var(--card),var(--card2));
+border-radius:25px;
+overflow:hidden;
+border:1px solid rgba(59,130,246,.2);
+transition:.35s;
+position:relative;
+box-shadow:0 10px 40px rgba(0,0,0,.3);
+}
 
-        .contact-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
+.project-card:hover{
+transform:translateY(-10px);
+box-shadow:0 25px 80px rgba(59,130,246,.3);
+border-color:rgba(59,130,246,.4);
+}
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-secondary);
-        }
+.project-badges{
+position:absolute;
+top:1.2rem;
+right:1.2rem;
+display:flex;
+flex-direction:column;
+gap:.6rem;
+align-items:flex-end;
+z-index:10;
+}
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
+.project-badge{
+padding:.5rem 1.2rem;
+font-size:.75rem;
+border-radius:20px;
+font-weight:700;
+color:white;
+background:var(--secondary);
+text-transform:uppercase;
+letter-spacing:.5px;
+box-shadow:0 4px 15px rgba(0,0,0,.3);
+}
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.production{background:linear-gradient(135deg,var(--success),#059669)}
+.new{background:linear-gradient(135deg,var(--warning),#d97706)}
+.mcp{background:linear-gradient(135deg,var(--secondary),#7c3aed)}
+.fastapi{background:linear-gradient(135deg,var(--cyan),#0891b2)}
+.ml{background:linear-gradient(135deg,var(--pink),#db2777)}
 
-        @keyframes pulse {
+.project-image{
+height:200px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:4.5rem;
+background:linear-gradient(135deg,rgba(59,130,246,.15),rgba(139,92,246,.08));
+position:relative;
+overflow:hidden;
+}
 
-            0%,
-            100% {
-                opacity: 0.15;
-                transform: scale(1);
-            }
+.project-image::before{
+content:'';
+position:absolute;
+width:200%;
+height:200%;
+background:radial-gradient(circle,rgba(59,130,246,.1),transparent 70%);
+animation:rotate 20s linear infinite;
+}
 
-            50% {
-                opacity: 0.25;
-                transform: scale(1.1);
-            }
-        }
+.project-content{
+padding:2.5rem;
+}
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
+.project-content h3{
+font-size:1.6rem;
+margin-bottom:1rem;
+font-weight:700;
+}
 
-            .hero p {
-                font-size: 1.2rem;
-            }
+.project-content p{
+color:var(--muted);
+margin-bottom:1.5rem;
+line-height:1.7;
+font-size:1.05rem;
+}
 
-            .about-content {
-                grid-template-columns: 1fr;
-            }
+.project-tags{
+display:flex;
+flex-wrap:wrap;
+gap:.6rem;
+margin-bottom:1.5rem;
+}
 
-            .nav-links {
-                gap: 1rem;
-            }
+.project-tag{
+padding:.45rem 1.1rem;
+font-size:.85rem;
+border-radius:15px;
+border:1px solid rgba(59,130,246,.25);
+color:var(--primary);
+background:rgba(59,130,246,.08);
+font-weight:500;
+}
 
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-    </style>
+.project-links{
+display:flex;
+gap:.8rem;
+flex-wrap:wrap;
+}
+
+.project-links a{
+display:inline-flex;
+align-items:center;
+gap:.5rem;
+padding:.75rem 1.5rem;
+border-radius:50px;
+border:1px solid rgba(59,130,246,.3);
+background:rgba(59,130,246,.1);
+color:var(--primary);
+text-decoration:none;
+font-weight:600;
+font-size:.9rem;
+transition:.3s;
+}
+
+.project-links a:hover{
+background:rgba(59,130,246,.2);
+border-color:var(--primary);
+transform:translateX(3px);
+}
+
+/* CONTACT */
+.contact{
+background:linear-gradient(135deg,var(--primary),var(--secondary));
+border-radius:30px;
+padding:5rem 3rem;
+text-align:center;
+box-shadow:0 25px 80px rgba(59,130,246,.4);
+}
+
+.contact h2{
+font-size:3.5rem;
+margin-bottom:1.5rem;
+color:white;
+font-weight:800;
+}
+
+.contact p{
+font-size:1.4rem;
+margin-bottom:3rem;
+color:white;
+opacity:.95;
+}
+
+.contact-links{
+display:flex;
+justify-content:center;
+gap:1.5rem;
+flex-wrap:wrap;
+}
+
+.contact-links a{
+display:inline-block;
+padding:1.1rem 2.5rem;
+background:white;
+color:var(--primary);
+border-radius:50px;
+font-weight:700;
+text-decoration:none;
+transition:.3s;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.contact-links a:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+footer{
+text-align:center;
+padding:3rem;
+color:var(--muted);
+border-top:1px solid rgba(59,130,246,.1);
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes rotate{
+from{transform:rotate(0deg)}
+to{transform:rotate(360deg)}
+}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+.about-grid{
+grid-template-columns:1fr;
+gap:3rem;
+}
+}
+
+@media(max-width:768px){
+nav{padding:1rem 5%}
+nav ul{gap:1rem;font-size:.85rem}
+.resume-btn{padding:.5rem 1.2rem;font-size:.85rem}
+section{padding:5rem 5%}
+.hero{padding:0 5%}
+.hero h1{font-size:2.8rem}
+.hero p{font-size:1.2rem}
+.section-title{font-size:2.2rem}
+.projects-grid{grid-template-columns:1fr}
+.stats-row{flex-direction:column}
+.experience-card{padding:2.5rem}
+.about-text h3{font-size:1.8rem}
+.contact h2{font-size:2.5rem}
+.contact p{font-size:1.2rem}
+}
+</style>
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">Dwiti Thaker</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="shape shape1"></div>
-        <div class="shape shape2"></div>
-        <div class="hero-content">
-            <h1>Hi, I'm Dwiti Thaker</h1>
-            <p>Debugging life, deploying dreams | Software Developer & Data Science Enthusiast</p>
-            <a href="#contact" class="cta-button">Get in Touch</a>
-        </div>
-    </section>
+<nav>
+<div class="logo">Dwiti Thaker</div>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="Dwiti_Thaker_Resume_.pdf" class="resume-btn" download>Resume</a></li>
+</ul>
+</nav>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Building intelligent solutions through code and data</h3>
-                <p>I’m Dwiti Thaker a software developer passionate about turning ideas into intelligent, data-driven
-                    digital experiences. With a strong foundation in machine learning and a growing expertise in the
-                    MERN stack, I love building impactful web applications that merge analytics, design, and user
-                    experience. </p>
-                <p>My work lies at the intersection of data, logic, and creativity driven by curiosity, innovation, and
-                    the thrill of continuous learning.</p>
-                <div class="skills">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">Machine Learning</span>
-                    <span class="skill-tag">Data Analysis</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">CSS</span>
-                    <span class="skill-tag">HTML</span>
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">FastAPI</span>
-                    <span class="skill-tag">Git/GitHub</span>
-                </div>
-            </div>
-            <div class="about-image">
-                <img src="me.png" alt="Dwiti Thaker">
-                <defs>
-                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
-                    </linearGradient>
-                </defs>
-                <circle cx="200" cy="200" r="150" fill="url(#grad1)" opacity="0.2" />
-                <rect x="100" y="150" width="200" height="150" rx="10" fill="url(#grad1)" opacity="0.8" />
-                <circle cx="200" cy="120" r="40" fill="url(#grad1)" />
-                </svg>
-            </div>
-        </div>
-    </section>
+<section class="hero">
+<div class="hero-content">
+<h1>Hi, I'm Dwiti Thaker</h1>
+<p>Python Backend & AI/ML Engineer</p>
+<div class="edu-badges">
+  <span class="edu-badge">🎓 B.Tech IT</span>
+  <span class="edu-badge">📅 Class of 2026</span>
+  <span class="edu-badge">⭐ 9.34 CGPA</span>
+</div>
+<a href="#contact" class="cta">Get in Touch</a>
+</div>
+</section>
 
-    <!-- Projects Section -->
-    <!-- Software Development Projects Section -->
-    <section id="software-projects">
-        <h2 class="section-title">Software Development Projects</h2>
-        <div class="projects-grid">
+<section id="about">
+<h2 class="section-title">About Me</h2>
+<p class="section-subtitle">Building intelligent systems at the intersection of backend engineering and AI</p>
 
-            <div class="project-card">
-                <div class="project-image">🏥</div>
-                <div class="project-content">
-                    <h3>Hospital Management System</h3>
-                    <p>Developed a full-featured hospital management web app enabling doctors, patients, and admins to
-                        manage appointments, medical records, and staff details efficiently.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">MongoDB</span>
-                        <span class="project-tag">FastAPI</span>
-                    </div>
-                    <a href="https://github.com/DwitiThaker/Hospital-Management" class="github-button" target="_blank">
-                        <span class="arrow">→</span> View on GitHub
-                    </a>
-                </div>
-            </div>
+<div class="about-grid">
+<div class="about-text">
+<h3>Crafting scalable backend solutions with cutting-edge AI</h3>
+<p>I'm a Backend & AI/ML Developer currently working as a Python Intern at Third Rock Techno, where I build production-grade systems that solve real-world problems.</p>
+<p>I specialize in FastAPI and MongoDB for backend architecture, while integrating advanced AI capabilities through LangChain, RAG, and Model Context Protocol (MCP). From hospital management systems to self-improving AI agents, I thrive on turning complex challenges into elegant, scalable solutions.</p>
 
-            <div class="project-card">
-                <div class="project-image">✅</div>
-                <div class="project-content">
-                    <h3>To-Do List Web App</h3>
-                    <p>Built a responsive and user-friendly task management application with real-time CRUD operations,
-                        authentication, and persistent data storage.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">FastAPI</span>
-                        <span class="project-tag">Postgresql</span>
-                        <span class="project-tag">Sqlite</span>
-                        <span class="project-tag">JavaScript</span>
-                        <span class="project-tag">HTML</span>
-                        <span class="project-tag">CSS</span>
-                    </div>
-                    <a href="https://client-zlnl.onrender.com/" class="github-button" target="_blank">
-                        <span class="arrow">→</span> Live Demo
-                    </a>
-                    <a href="https://github.com/DwitiThaker/FullStackApp" class="github-button" target="_blank">
-                        <span class="arrow">→</span> View on GitHub
-                    </a>
-                </div>
-            </div>
+<div class="stats-row">
+<div class="stat-box">
+<h4>15+</h4>
+<p>Projects Built</p>
+</div>
+<div class="stat-box">
+<h4>9.34</h4>
+<p>CGPA</p>
+</div>
+<div class="stat-box">
+<h4>6+</h4>
+<p>Months Experience</p>
+</div>
+</div>
 
-            <div class="project-card">
-                <div class="project-image">🚀</div>
-                <div class="project-content">
-                    <h3>Weather-App</h3>
-                    <p>Continuously exploring projects that merge AI with full-stack innovation — from intelligent
-                        dashboards to automation tools. Stay tuned for more exciting releases!</p>
-                    <div class="project-tags">
-                        <span class="project-tag">AI</span>
-                        <span class="project-tag">MERN</span>
-                        <span class="project-tag">Innovation</span>
-                        <span class="project-tag">In Progress</span>
-                    </div>
-                    <a href="https://heythereweather.netlify.app/" class="github-button" target="_blank">
-                        <span class="arrow">→</span> Live Demo
-                    </a>
-                    <a href="https://github.com/DwitiThaker/weather-app" class="github-button" target="_blank">
-                        <span class="arrow">→</span> View on GitHub
-                    </a>
-                </div>
-            </div>
+<div class="exploring-badge">
+<span>🚀</span>
+<span>Currently exploring MCP, LangGraph & Vector Databases</span>
+</div>
+</div>
 
-            <div class="project-card">
-                <div class="project-image">💸</div>
+<div class="skills-section">
+<h4>Technical Arsenal</h4>
 
-                <div class="project-content">
-                    <h3>OwnMyCash – Expense Tracker</h3>
+<div class="skill-category">
+<div class="skill-category-title">Backend & Infrastructure</div>
+<div class="skill-tags">
+<span class="skill-tag">FastAPI</span>
+<span class="skill-tag">MongoDB</span>
+<span class="skill-tag">PostgreSQL</span>
+<span class="skill-tag">JWT/OAuth2</span>
+<span class="skill-tag">MCP</span>
+<span class="skill-tag">RESTful APIs</span>
+</div>
+</div>
 
-                    <p>
-                        A minimal and fast expense-tracking web application built with React and Vite.
-                        It features real-time balance updates, income/expense summaries, and a clean,
-                        responsive UI powered by Context API and a custom reducer.
-                    </p>
+<div class="skill-category">
+<div class="skill-category-title">AI & Machine Learning</div>
+<div class="skill-tags">
+<span class="skill-tag">LangChain</span>
+<span class="skill-tag">LangGraph</span>
+<span class="skill-tag">FAISS</span>
+<span class="skill-tag">RAG</span>
+<span class="skill-tag">Scikit-learn</span>
+<span class="skill-tag">NLP</span>
+<span class="skill-tag">LSTM</span>
+</div>
+</div>
 
-                    <div class="project-tags">
-                        <span class="project-tag">React</span>
-                        <span class="project-tag">Vite</span>
-                        <span class="project-tag">JavaScript</span>
-                        <span class="project-tag">Context API</span>
-                        <span class="project-tag">CSS</span>
-                    </div>
+<div class="skill-category">
+<div class="skill-category-title">Core Technologies</div>
+<div class="skill-tags">
+<span class="skill-tag">Python</span>
+<span class="skill-tag">SQL</span>
+<span class="skill-tag">Git/GitHub</span>
+<span class="skill-tag">Pandas</span>
+<span class="skill-tag">NumPy</span>
+<span class="skill-tag">TensorFlow</span>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-                    <a href="https://owmycash.netlify.app/" class="github-button" target="_blank">
-                        <span class="arrow">→</span> Live Demo
-                    </a>
+<section id="experience">
+<h2 class="section-title">Experience</h2>
+<p class="section-subtitle">Building production systems and solving real-world challenges</p>
 
-                    <a href="https://github.com/DwitiThaker/expenseTracker" class="github-button" target="_blank">
-                        <span class="arrow">→</span> View on GitHub
-                    </a>
-                </div>
-            </div>
+<div class="experience-card">
+<div class="experience-header">
+<div>
+<h3>Python Intern</h3>
+<p class="company-name">Third Rock Techno</p>
+</div>
+<span class="duration">Aug 2024 – Present</span>
+</div>
+<ul>
+<li>Engineering production backend features with FastAPI, MongoDB, and LangChain across multiple client projects, ensuring high performance and scalability</li>
+<li>Developed anonymous feedback system, hospital management modules, and RAG-based solutions with vector embeddings for intelligent document retrieval</li>
+<li>Implemented secure authentication workflows using JWT and OAuth2, establishing robust data security and user privacy protocols</li>
+<li>Resolved critical production issues including verification email delivery and API reliability, achieving 99.9% system uptime</li>
+<li>Collaborating with cross-functional teams to deliver well-documented, scalable APIs with comprehensive testing coverage</li>
+</ul>
+</div>
+</section>
 
+<!-- AI / ML PROJECTS -->
+<section id="projects">
+<h2 class="section-title">AI / ML Backend Projects</h2>
+<p class="section-subtitle">AI-powered backend systems and intelligent applications</p>
+<div class="projects-grid">
 
-        </div>
-    </section>
+<!-- GitHub MCP -->
+<div class="project-card">
+<div class="project-badges">
+<span class="project-badge mcp">Early MCP Adopter</span>
+<span class="project-badge production">Production</span>
+</div>
+<div class="project-image">🔧</div>
+<div class="project-content">
+<h3>GitHub MCP Server</h3>
+<p>Built an MCP (Model Context Protocol) server enabling AI assistants to interact with GitHub repositories - search code, create issues, manage PRs, and analyze repositories. One of the early implementations of Anthropic's new standard for AI tool integration.</p>
+<div class="project-tags">
+<span class="project-tag">Python</span>
+<span class="project-tag">MCP</span>
+<span class="project-tag">GitHub API</span>
+<span class="project-tag">Async</span>
+</div>
+<div class="project-links">
+<a href="https://ask-your-repo.streamlit.app/" target="_blank">→ Live Demo</a>
+<a href="https://github.com/DwitiThaker/github-mcp" target="_blank">→ GitHub</a>
+</div>
+</div>
+</div>
 
+<!-- Reflexion -->
+<div class="project-card">
+<div class="project-badges">
+<span class="project-badge new">AI Agents</span>
+</div>
+<div class="project-image">🤖</div>
+<div class="project-content">
+<h3>Reflexion-Based AI Agent</h3>
+<p>Built a Reflexion-based AI agent using LangChain and LangGraph that iteratively self-evaluates and improves its responses through feedback-driven reasoning loops with tool execution.</p>
+<div class="project-tags">
+<span class="project-tag">LangChain</span>
+<span class="project-tag">LangGraph</span>
+<span class="project-tag">AI Agents</span>
+<span class="project-tag">Python</span>
+</div>
+<div class="project-links">
+<a href="https://github.com/DwitiThaker/reflexionAgent" target="_blank">→ GitHub</a>
+</div>
+</div>
+</div>
 
+<!-- YouTube Assistant -->
+<div class="project-card">
+<div class="project-badges">
+<span class="project-badge new">AI Agents</span>
+</div>
+<div class="project-image">🎥</div>
+<div class="project-content">
+<h3>YouTube Assistant</h3>
+<p>AI-powered tool that analyzes YouTube videos and provides intelligent summaries, key insights extraction, and question-answering capabilities using advanced NLP techniques.</p>
+<div class="project-tags">
+<span class="project-tag">Python</span>
+<span class="project-tag">LangChain</span>
+<span class="project-tag">NLP</span>
+<span class="project-tag">Streamlit</span>
+</div>
+<div class="project-links">
+<a href="https://github.com/DwitiThaker/YoutubeAssistant" target="_blank">→ GitHub</a>
+</div>
+</div>
+</div>
 
-    <section id="projects">
-        <h2 class="section-title">Machine Learning Projects</h2>
-        <div class="projects-grid">
+<!-- Roadmap Generator -->
+<div class="project-card">
+<div class="project-badges">
+<span class="project-badge new">AI Agents</span>
+</div>
+<div class="project-image">🗺️</div>
+<div class="project-content">
+<h3>Roadmap Generator</h3>
+<p>AI-powered career navigator using FAISS embeddings and RAG (Retrieval-Augmented Generation) to provide personalized learning paths and career guidance based on your goals.</p>
+<div class="project-tags">
+<span class="project-tag">RAG</span>
+<span class="project-tag">FAISS</span>
+<span class="project-tag">LangChain</span>
+<span class="project-tag">Python</span>
+</div>
+<div class="project-links">
+<a href="https://github.com/DwitiThaker/roadmap-generator-app" target="_blank">→ GitHub</a>
+</div>
+</div>
+</div>
 
-            <div class="project-card">
-                <div class="project-image">📈</div>
-                <div class="project-content">
-                    <h3>Stock Price Prediction</h3>
-                    <p>Compares Linear Regression and LSTM models for forecasting stock prices using historical trends
-                        and technical indicators.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">LSTM</span>
-                        <span class="project-tag">TensorFlow</span>
-                        <span class="project-tag">Linear Regression</span>
-                        <span class="project-tag">Data Analysis</span>
-                    </div>
-                    <a href="https://github.com/DwitiThaker/ds_portfolio/tree/main/Stock_price_prediction"
-                        class="github-button" target="_blank">
-                        <span class="arrow">→</span> View on GitHub
-                    </a>
-                </div>
-            </div>
+<!-- Anonymous Feedback -->
+<div class="project-card">
+<div class="project-badges">
+<span class="project-badge production">Production</span>
+<span class="project-badge fastapi">FastAPI</span>
+</div>
+<div class="project-image">📝</div>
+<div class="project-content">
+<h3>Anonymous Feedback System</h3>
+<p>Engineered production-ready backend APIs using FastAPI to enable secure, anonymous form submissions with JWT authentication and MongoDB storage.</p>
+<div class="project-tags">
+<span class="project-tag">FastAPI</span>
+<span class="project-tag">MongoDB</span>
+<span class="project-tag">JWT</span>
+<span class="project-tag">OAuth2</span>
+</div>
+<div class="project-links">
+<a href="https://feedback-form-zeta-gray.vercel.app/" target="_blank">→ Live Demo</a>
+<a href="https://github.com/DwitiThaker/AnnonymousForm" target="_blank">→ GitHub</a>
+</div>
+</div>
+</div>
 
-            <div class="project-card">
-                <div class="project-image">🩺</div>
-                <div class="project-content">
-                    <h3>Disease Prediction</h3>
-                    <p>A web-based application that predicts the likelihood of three major health conditions — Heart
-                        Disease, Diabetes, and Parkinson’s Disease.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Machine Learning</span>
-                        <span class="project-tag">Flask</span>
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">Data Science</span>
-                    </div>
-                    <a href="https://github.com/DwitiThaker/ds_portfolio/tree/main/disease_prediction"
-                        class="github-button" target="_blank">
-                        <span class="arrow">→</span> View on GitHub
-                    </a>
-                </div>
-            </div>
+<!-- Hospital -->
+<div class="project-card">
+<div class="project-badges">
+<span class="project-badge fastapi">FastAPI</span>
+</div>
+<div class="project-image">🏥</div>
+<div class="project-content">
+<h3>Hospital Management System</h3>
+<p>Comprehensive role-based backend system handling doctors, nurses, prescriptions, and inventory management with secure authentication and authorization.</p>
+<div class="project-tags">
+<span class="project-tag">FastAPI</span>
+<span class="project-tag">MongoDB</span>
+<span class="project-tag">Role-Based Access</span>
+</div>
+<div class="project-links">
+<a href="https://github.com/DwitiThaker/Hospital-Management" target="_blank">→ GitHub</a>
+</div>
+</div>
+</div>
 
-            <div class="project-card">
-                <div class="project-image">💰</div>
-                <div class="project-content">
-                    <h3>Health Insurance Cost Prediction</h3>
-                    <p>Predicts annual medical expenses using Linear Regression based on customer demographics and
-                        health data.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">Linear Regression</span>
-                        <span class="project-tag">Pandas</span>
-                        <span class="project-tag">NumPy</span>
-                    </div>
-                    <a href="https://github.com/DwitiThaker/ds_portfolio/tree/main/Health-Insurance"
-                        class="github-button" target="_blank">
-                        <span class="arrow">→</span> View on GitHub
-                    </a>
-                </div>
-            </div>
+<!-- TODO -->
+<div class="project-card">
+<div class="project-badges">
+<span class="project-badge production">Production</span>
+</div>
+<div class="project-image">✅</div>
+<div class="project-content">
+<h3>TODO – Full Stack App</h3>
+<p>A full-stack ToDo application built with FastAPI backend and modern frontend, allowing users to efficiently manage tasks with authentication and persistence.</p>
+<div class="project-tags">
+<span class="project-tag">FastAPI</span>
+<span class="project-tag">SQLite</span>
+<span class="project-tag">Full Stack</span>
+</div>
+<div class="project-links">
+<a href="https://todo-fullstackapp-4tt1.onrender.com/" target="_blank">→ Live Demo</a>
+<a href="https://github.com/DwitiThaker/FullStackApp" target="_blank">→ GitHub</a>
+</div>
+</div>
+</div>
 
-            <div class="project-card">
-                <div class="project-image">📝</div>
-                <div class="project-content">
-                    <h3>Basic Text Summarization</h3>
-                    <p>Summarizes large texts into concise, informative summaries using NLP-based text ranking and
-                        frequency analysis techniques.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">NLP</span>
-                        <span class="project-tag">TextRank</span>
-                        <span class="project-tag">Summarization</span>
-                    </div>
-                    <a href="https://github.com/DwitiThaker/ds_portfolio/tree/main/Text_Summarization"
-                        class="github-button" target="_blank">
-                        <span class="arrow">→</span> View on GitHub
-                    </a>
-                </div>
-            </div>
+<!-- LangChain Guide -->
+<div class="project-card">
+<div class="project-image">📚</div>
+<div class="project-content">
+<h3>Modern LangChain Guide</h3>
+<p>A comprehensive, hands-on beginner-to-intermediate guide to LangChain 1.x with practical examples, best practices, and real-world implementations.</p>
+<div class="project-tags">
+<span class="project-tag">LangChain</span>
+<span class="project-tag">Documentation</span>
+<span class="project-tag">Tutorial</span>
+</div>
+<div class="project-links">
+<a href="https://github.com/DwitiThaker/modern-langchain-1x-guide" target="_blank">→ GitHub</a>
+</div>
+</div>
+</div>
 
-            <div class="project-card">
-                <div class="project-image">📊</div>
-                <div class="project-content">
-                    <h3>Prophet Stock Price Prediction</h3>
-                    <p>A web-based application that uses Facebook Prophet to forecast stock prices based on historical
-                        data with visualization support.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Prophet</span>
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">Data Visualization</span>
-                        <span class="project-tag">Forecasting</span>
-                    </div>
-                    <a href="https://github.com/DwitiThaker/ds_portfolio/tree/main/prophet-stock" class="github-button"
-                        target="_blank">
-                        <span class="arrow">→</span> View on GitHub
-                    </a>
-                </div>
-            </div>
+</div>
+</section>
 
-            <div class="project-card">
-                <div class="project-image">💬</div>
-                <div class="project-content">
-                    <h3>Toxic Comment Classifier</h3>
-                    <p>A collaborative ML project detecting toxic comments using classical NLP and models like Naive
-                        Bayes, Logistic Regression, and SVM.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">NLP</span>
-                        <span class="project-tag">Scikit-learn</span>
-                        <span class="project-tag">Text Classification</span>
-                        <span class="project-tag">Machine Learning</span>
-                    </div>
-                    <a href="https://github.com/DwitiThaker/Collaborative-ml-workspace/tree/main/toxic-comment-classifier"
-                        class="github-button" target="_blank">
-                        <span class="arrow">→</span> View on GitHub
-                    </a>
-                </div>
-            </div>
+<!-- ML PROJECTS -->
+<section id="ml-projects">
+<h2 class="section-title">Machine Learning Projects</h2>
+<p class="section-subtitle">Deep learning and predictive modeling solutions</p>
+<div class="projects-grid">
 
-        </div>
-    </section>
+<div class="project-card">
+<div class="project-badges">
+<span class="project-badge ml">LSTM</span>
+</div>
+<div class="project-image">📈</div>
+<div class="project-content">
+<h3>Stock Price Prediction – Hybrid Model</h3>
+<p>Hybrid forecasting model combining LSTM neural networks, Linear Regression, and Rolling Mean techniques for accurate stock price predictions and trend analysis.</p>
+<div class="project-tags">
+<span class="project-tag">LSTM</span>
+<span class="project-tag">TensorFlow</span>
+<span class="project-tag">Time Series</span>
+<span class="project-tag">Python</span>
+</div>
+<div class="project-links">
+<a href="https://github.com/DwitiThaker/ds_portfolio/tree/main/Stock_price_prediction" target="_blank">→ GitHub</a>
+</div>
+</div>
+</div>
 
+<div class="project-card">
+<div class="project-badges">
+<span class="project-badge ml">NLP</span>
+</div>
+<div class="project-image">💬</div>
+<div class="project-content">
+<h3>Toxic Comment Classifier</h3>
+<p>Detecting toxic comments using NLP and multiple ML models including Naive Bayes, SVM, and Logistic Regression with comprehensive text preprocessing and feature engineering.</p>
+<div class="project-tags">
+<span class="project-tag">NLP</span>
+<span class="project-tag">Scikit-learn</span>
+<span class="project-tag">Classification</span>
+</div>
+<div class="project-links">
+<a href="https://github.com/DwitiThaker/Collaborative-ml-workspace/tree/main/toxic-comment-classifier" target="_blank">→ GitHub</a>
+</div>
+</div>
+</div>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="contact">
-            <h2>Let's Work Together</h2>
-            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-            </p>
-            <div class="contact-links">
-                <a href="mailto:dwiti.thaker04@gmail.com" class="contact-link">Email Me</a>
-                <a href="https://github.com/DwitiThaker" class="contact-link" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/dwiti-thaker-a36358236/" class="contact-link"
-                    target="_blank">LinkedIn</a>
-            </div>
-        </div>
-    </section>
+</div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Dwiti Thaker. Built with passion and code.</p>
-    </footer>
+<!-- Contact Section -->
+<section id="contact">
+<div class="contact">
+<h2>Let's Work Together</h2>
+<p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+<div class="contact-links">
+<a href="mailto:dwiti.thaker04@gmail.com">Email Me</a>
+<a href="https://github.com/DwitiThaker" target="_blank">GitHub</a>
+<a href="https://www.linkedin.com/in/dwiti-thaker-a36358236/" target="_blank">LinkedIn</a>
+</div>
+</div>
+</section>
 
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+<!-- Footer -->
+<footer>
+<p>&copy; 2025 Dwiti Thaker. Built with passion and code.</p>
+</footer>
 
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+<script>
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+if (target) {
+target.scrollIntoView({
+behavior: 'smooth',
+block: 'start'
+});
+}
+});
+});
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 1s ease forwards';
-                }
-            });
-        }, observerOptions);
+// Scroll animations
+const observerOptions = {
+threshold: 0.1,
+rootMargin: '0px 0px -100px 0px'
+};
 
-        document.querySelectorAll('.project-card, .about-content').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.style.animation = 'fadeInUp 1s ease forwards';
+}
+});
+}, observerOptions);
+
+document.querySelectorAll('.project-card, .experience-card').forEach(el => {
+observer.observe(el);
+});
+</script>
 </body>
-
 </html>
